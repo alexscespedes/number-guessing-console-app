@@ -31,7 +31,7 @@
                     break;
                 }
 
-                var numberGuessing = new NumberGuess();
+                var numberGuessing = new NumberGuessing();
 
                 switch (userLevelInput)
                 {
