@@ -2,10 +2,13 @@ namespace NumberGuessing
 {
     public class NumberGuessing {
         int userGuess;
-        int highscore;
         int limit = 10;
         int numberOfAttempts;
+        public static int bestScore = int.MaxValue;
+
         public void NumberGuessingGame(int randomNumber) {
+            numberOfAttempts = 0;
+    
             while (true) 
             {
                 while (true)
@@ -20,9 +23,15 @@ namespace NumberGuessing
 
                 if (userGuess == randomNumber)
                 {
-                    Console.WriteLine("Your guessed it. Congratulations!");
-                    highscore = limit - numberOfAttempts;
-                    Console.WriteLine($"Your highscore was: {highscore}");
+                    Console.WriteLine("You guessed it. Congratulations!");
+                    if (numberOfAttempts < bestScore)
+                    {
+                        bestScore = numberOfAttempts;
+                        Console.WriteLine("New high score!");
+                    }
+
+                    Console.WriteLine($"Attempts this game: {numberOfAttempts}");
+                    Console.WriteLine($"Best score so far: {bestScore} attempts");
                     break;
                 }
 
@@ -37,7 +46,7 @@ namespace NumberGuessing
                     }
                     else 
                     {
-                        Console.WriteLine("You runs out of attempts");
+                        Console.WriteLine("You ran out of attempts");
                         break;
                     }
                     
@@ -51,12 +60,12 @@ namespace NumberGuessing
                                         
             if (userConfirmation == "N" || userConfirmation == "NO")
             {
+                bestScore = int.MaxValue;
                 return false;
             }
             else if (userConfirmation == "Y" || userConfirmation == "YES")
             {
                 numberOfAttempts = 0;
-                highscore = 0;
                 return true;
             }
             else 

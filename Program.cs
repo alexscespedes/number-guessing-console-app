@@ -30,7 +30,7 @@
                         do
                         {
                             Console.WriteLine("Junior Level");
-                            int juniorLevel = random.Next(1, 25);
+                            int juniorLevel = random.Next(1, 26);
                             numberGuessing.NumberGuessingGame(juniorLevel);
 
                             confirmation = numberGuessing.MultipleGamesInOneSession();
@@ -41,7 +41,7 @@
                         do
                         {
                             Console.WriteLine("Intermediate Level");
-                            int intermediateLevel = random.Next(1, 50);
+                            int intermediateLevel = random.Next(1, 51);
                             numberGuessing.NumberGuessingGame(intermediateLevel);
 
                             confirmation = numberGuessing.MultipleGamesInOneSession();
@@ -52,7 +52,7 @@
                         do
                             {
                             Console.WriteLine("Senior Level");
-                            int seniorLevel = random.Next(1, 75);
+                            int seniorLevel = random.Next(1, 76);
                             numberGuessing.NumberGuessingGame(seniorLevel);
 
                             confirmation = numberGuessing.MultipleGamesInOneSession();
