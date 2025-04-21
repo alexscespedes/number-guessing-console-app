@@ -1,11 +1,10 @@
 namespace NumberGuessing
 {
     public class NumberGuessing {
-        // Random random = new Random();
-        // int randomNumber;
         int userGuess;
+        int highscore;
         int limit = 10;
-        int numberOfAttempts = 0;
+        int numberOfAttempts;
         public void NumberGuessingGame(int randomNumber) {
             while (true) 
             {
@@ -22,7 +21,7 @@ namespace NumberGuessing
                 if (userGuess == randomNumber)
                 {
                     Console.WriteLine("Your guessed it. Congratulations!");
-                    int highscore = limit - numberOfAttempts;
+                    highscore = limit - numberOfAttempts;
                     Console.WriteLine($"Your highscore was: {highscore}");
                     break;
                 }
@@ -34,7 +33,6 @@ namespace NumberGuessing
                     {
                         string message = (userGuess > randomNumber) ? "Too high" : "Too low";
                         Console.WriteLine(message);
-                        // score--;
                         Console.WriteLine($"Number of guesses made: {numberOfAttempts}");
                     }
                     else 
@@ -45,6 +43,27 @@ namespace NumberGuessing
                     
                 }
             }
-        } 
+        }
+
+        public bool MultipleGamesInOneSession() {
+            Console.Write("Do you want to play another game in the same session level (Y/N): ");
+            string? userConfirmation = Console.ReadLine()?.Trim().ToUpper();
+                                        
+            if (userConfirmation == "N" || userConfirmation == "NO")
+            {
+                return false;
+            }
+            else if (userConfirmation == "Y" || userConfirmation == "YES")
+            {
+                numberOfAttempts = 0;
+                highscore = 0;
+                return true;
+            }
+            else 
+            {
+                Console.WriteLine("Invalid input!");
+                return false;
+            }
+        }
     }
 }
